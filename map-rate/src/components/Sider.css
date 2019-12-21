@@ -1,0 +1,9 @@
+.sider {
+  display: flex;
+  flex-direction: column;
+}
+
+.cashSwitch {
+  display: flex;
+  justify-content: space-around;
+}
