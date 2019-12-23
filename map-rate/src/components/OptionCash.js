@@ -19,12 +19,12 @@ const OptionCash = ({ isBuying, onBuySellChange, onCurrencyChange }) => {
         <Radio.Group
           onChange={onCurrencyChange}
           name="radiogroup"
-          defaultValue={"USD"}
+          defaultValue={"usd"}
         >
-          <Radio value={"USD"}>USD</Radio>
-          <Radio value={"EUR"}>EUR</Radio>
-          <Radio value={"RUB"}>RUB</Radio>
-          <Radio value={"GBP"}>GBP</Radio>
+          <Radio value={"usd"}>USD</Radio>
+          <Radio value={"eur"}>EUR</Radio>
+          <Radio value={"rub"}>RUB</Radio>
+          <Radio value={"gbp"}>GBP</Radio>
         </Radio.Group>
       </div>
     </div>
