@@ -99,9 +99,9 @@ const OptionPanel = () => {
       </div>
       <div className="searchSummary">
         <p>
-          Rate to <em>{form.isBuying}</em> <strong>AMD</strong> for{" "}
-          <strong>{form.currency.toUpperCase()}</strong> with{" "}
-          <em>{isCash ? "cash" : "card"}</em>.
+          Rate to <em>{form.isBuying}</em> <strong>AMD</strong> with{" "}
+          <strong>{form.currency.toUpperCase()}</strong> using
+          <em>{isCash ? " cash" : " a card"}</em>.
         </p>
         <p></p>
         {}
