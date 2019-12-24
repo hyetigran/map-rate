@@ -1,0 +1,25 @@
+.sider {
+  display: flex;
+  flex-direction: column;
+  width: 90%;
+  margin: 0 auto;
+}
+
+.cashSwitch {
+  display: flex;
+  justify-content: space-around;
+}
+
+.searchSummary {
+  width: 80%;
+  margin: 0 auto;
+  border: 1px dashed grey;
+  border-radius: 0.5rem;
+}
+.searchSummary p {
+  margin: 0;
+}
+/* .optionCash {
+  width: 90%;
+  margin: 0 auto;
+} */
