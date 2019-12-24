@@ -5,7 +5,7 @@ import OptionCash from "./OptionCash";
 import OptionCard from "./OptionCard";
 import "./Sider.css";
 
-import { dummyData } from "../utility/dummyData";
+import { dummyData } from "../../utility/dummyData";
 
 const initialForm = {
   isBuying: "buy",
