@@ -14,11 +14,11 @@ const OptionCard = () => {
         </Radio.Group>
       </div>
       <div>
-        <Radio.Group name="radiogroup" defaultValue={1}>
-          <Radio value={1}>USD</Radio>
-          <Radio value={2}>EUR</Radio>
-          <Radio value={3}>RUB</Radio>
-          <Radio value={4}>GBP</Radio>
+        <Radio.Group name="radiogroup" defaultValue={"usd"}>
+          <Radio value={"usd"}>USD</Radio>
+          <Radio value={"eur"}>EUR</Radio>
+          <Radio value={"rub"}>RUB</Radio>
+          <Radio value={"gbp"}>GBP</Radio>
         </Radio.Group>
       </div>
     </div>

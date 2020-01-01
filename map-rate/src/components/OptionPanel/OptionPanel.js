@@ -6,6 +6,7 @@ import OptionCard from "./OptionCard";
 import "./Sider.css";
 
 import { dummyData } from "../../utility/dummyData";
+import SearchBox from "react-google-maps/lib/components/places/SearchBox";
 
 const initialForm = {
   isBuying: "buy",
@@ -99,7 +100,8 @@ const OptionPanel = () => {
       </div>
       <div className="searchSummary">
         <p>
-          Rate to <em>{form.isBuying}</em> <strong>AMD</strong> with{" "}
+          Rate to <em>{form.isBuying}</em> <strong>AMD</strong>
+          {form.isBuying == "buy" ? " with " : " for "}
           <strong>{form.currency.toUpperCase()}</strong> using
           <em>{isCash ? " cash" : " a card"}</em>.
         </p>
