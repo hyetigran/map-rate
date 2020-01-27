@@ -6,7 +6,6 @@ import OptionCard from "./OptionCard";
 import "./Sider.css";
 
 import { dummyData } from "../../utility/dummyData";
-import SearchBox from "react-google-maps/lib/components/places/SearchBox";
 
 const initialForm = {
   isBuying: "buy",
