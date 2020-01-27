@@ -8,7 +8,7 @@ export const dummyData = [
   },
   {
     bankName: "Ameria bank",
-    usd: { buy: 477, sell: 480.5 },
+    usd: { buy: 480, sell: 480.5 },
     eur: { buy: 527, sell: 535 },
     rub: { buy: 7.59, sell: 7.79 },
     gbp: { buy: 614, sell: 624 }
