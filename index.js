@@ -7,7 +7,7 @@ const helmet = require("helmet");
 const PORT = process.env.PORT || 8000;
 
 const server = express();
-
+server.use(express.static("client/build"));
 server.use(helmet());
 server.use(cors());
 server.use(express.json());
