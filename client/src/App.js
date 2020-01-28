@@ -3,8 +3,6 @@ import { Layout } from "antd";
 
 import WrappedMap from "./components/Map/Map";
 import OptionPanel from "./components/OptionPanel/OptionPanel";
-import MapWithSearch from "./components/Map/MapWithSearch";
-import MapExample from "./components/Map/MapExample";
 import "antd/dist/antd.css";
 import "./App.css";
 
@@ -19,14 +17,12 @@ function App() {
         <Layout>
           <Header>Header</Header>
           <Content>
-            {/* <WrappedMap
+            <WrappedMap
               googleMapURL={`https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=geometry,drawing,places&key=${process.env.REACT_APP_GOOGLE_KEY}`}
               loadingElement={<div style={{ height: "100%" }} />}
               containerElement={<div style={{ height: "100%" }} />}
               mapElement={<div style={{ height: "100%" }} />}
-            /> */}
-            {/* <MapWithSearch /> */}
-            <MapExample />
+            />
           </Content>
         </Layout>
       </Layout>
