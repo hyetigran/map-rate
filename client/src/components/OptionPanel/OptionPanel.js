@@ -1,11 +1,10 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Switch, Button, Modal } from "antd";
+import axios from "axios";
 
 import OptionCash from "./OptionCash";
 import OptionCard from "./OptionCard";
 import "./Sider.css";
-
-import { dummyData } from "../../utility/dummyData";
 
 const initialForm = {
   isBuying: "buy",
@@ -21,8 +20,25 @@ const OptionPanel = () => {
   const [isCash, setIsCash] = useState(true);
   const [form, setForm] = useState(initialForm);
   const [modal, setModal] = useState({ visible: false });
-  console.log(form);
-  console.log(modal);
+  const [nonCashData, setNonCashData] = useState([]);
+
+  useEffect(() => {
+    if (!nonCashData.length) {
+      fetchNonCashData();
+    }
+  }, [nonCashData]);
+
+  function fetchNonCashData() {
+    axios
+      .get("http://localhost:8000/rate") // need to change to "/rate" before `npm run build`
+      .then(response => {
+        setNonCashData(response.data);
+      })
+      .catch(error => {
+        console.log(error);
+      });
+  }
+
   function onChange(checked) {
     setIsCash(checked);
   }
@@ -30,12 +46,12 @@ const OptionPanel = () => {
     setForm({ ...form, currency: checked.target.value });
   }
   function onBuySellChange(checked) {
-    console.log("clicked", checked);
+    //console.log("clicked", checked);
     setForm({ ...form, isBuying: checked.target.value });
   }
 
   function searchHandle() {
-    const allRateList = dummyData.map(bank => {
+    const allRateList = nonCashData.map(bank => {
       let specificRate = bank[form.currency][form.isBuying];
       return { name: bank.bankName, rate: specificRate };
     });
@@ -100,7 +116,7 @@ const OptionPanel = () => {
       <div className="searchSummary">
         <p>
           Rate to <em>{form.isBuying}</em> <strong>AMD</strong>
-          {form.isBuying == "buy" ? " with " : " for "}
+          {form.isBuying === "buy" ? " with " : " for "}
           <strong>{form.currency.toUpperCase()}</strong> using
           <em>{isCash ? " cash" : " a card"}</em>.
         </p>

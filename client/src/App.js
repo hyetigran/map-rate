@@ -7,7 +7,7 @@ import "antd/dist/antd.css";
 import "./App.css";
 
 function App() {
-  const { Header, Footer, Sider, Content } = Layout;
+  const { Header, Sider, Content } = Layout;
   return (
     <div className="App">
       <Layout>
