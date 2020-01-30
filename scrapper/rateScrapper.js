@@ -20,36 +20,42 @@ const TABLE_ROW_IDS = [
   "133240fd-5910-421d-b417-5a9cedd5f5f7"
 ];
 
-rp(url)
-  .then(url => {
-    let resultsArr = [];
-    for (let i = 0; i < TABLE_ROW_IDS.length; i++) {
-      let currencyArr = [];
-      let bankName = $(
-        `tbody > tr[id=${TABLE_ROW_IDS[i]}] > td:nth-child(2) > a`,
-        url
-      ).text();
-
-      for (let j = 6; j <= 13; j++) {
-        currencyArr.push(
-          $(
-            `tbody > tr[id=${TABLE_ROW_IDS[i]}] > td:nth-child(${j})`,
+const rateScrapper = () => {
+  return (
+    rp(url)
+      .then(url => {
+        let resultsArr = [];
+        for (let i = 0; i < TABLE_ROW_IDS.length; i++) {
+          let currencyArr = [];
+          let bankName = $(
+            `tbody > tr[id=${TABLE_ROW_IDS[i]}] > td:nth-child(2) > a`,
             url
-          ).text()
-        );
-      }
-      //console.log("cur", currencyArr);
-      resultsArr.push({
-        bankName,
-        usd: { buy: currencyArr[0], sell: currencyArr[1] },
-        eur: { buy: currencyArr[2], sell: currencyArr[3] },
-        rub: { buy: currencyArr[4], sell: currencyArr[5] },
-        gbp: { buy: currencyArr[6], sell: currencyArr[7] }
-      });
-    }
-    console.log("array", resultsArr);
-  })
-  // $(`tbody > tr[id=${tableRowIds[0]}] > td:nth-child(2) > a`, url).text()
-  .catch(error => {
-    console.log(error);
-  });
+          ).text();
+
+          for (let j = 6; j <= 13; j++) {
+            currencyArr.push(
+              $(
+                `tbody > tr[id=${TABLE_ROW_IDS[i]}] > td:nth-child(${j})`,
+                url
+              ).text()
+            );
+          }
+          //console.log("cur", currencyArr);
+          resultsArr.push({
+            bankName,
+            usd: { buy: currencyArr[0], sell: currencyArr[1] },
+            eur: { buy: currencyArr[2], sell: currencyArr[3] },
+            rub: { buy: currencyArr[4], sell: currencyArr[5] },
+            gbp: { buy: currencyArr[6], sell: currencyArr[7] }
+          });
+        }
+        return resultsArr;
+        //console.log("array", resultsArr);
+      })
+      // $(`tbody > tr[id=${tableRowIds[0]}] > td:nth-child(2) > a`, url).text()
+      .catch(error => {
+        console.log(error);
+      })
+  );
+};
+module.exports = rateScrapper;
