@@ -1,7 +1,9 @@
 import React from "react";
 
 const HistoryCard = (props) => {
-  return <div>history</div>;
+  const { history } = props;
+  console.log("card", history);
+  return <div>{history.searchResult.name}</div>;
 };
 
 export default HistoryCard;

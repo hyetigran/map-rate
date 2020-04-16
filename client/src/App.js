@@ -20,6 +20,7 @@ const initialForm = {
 function App() {
   const [form, setForm] = useState(initialForm);
   const [history, setHistory] = useState([]);
+  //need history to contain unique id inorder to map in history component
 
   useEffect(() => {
     setHistory([...history, form]);
