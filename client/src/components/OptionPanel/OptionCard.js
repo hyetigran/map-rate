@@ -3,7 +3,7 @@ import { Radio } from "antd";
 
 const OptionCard = () => {
   return (
-    <div className="optionCard">
+    <div className="optionCardCash">
       Card Options
       <div>
         <Radio.Group defaultValue="buy" buttonStyle="solid">

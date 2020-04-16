@@ -3,7 +3,7 @@ import { Radio } from "antd";
 
 const OptionCash = ({ isBuying, onBuySellChange, onCurrencyChange }) => {
   return (
-    <div className="optionCash">
+    <div className="optionCardCash">
       Cash Options
       <div>
         <Radio.Group
