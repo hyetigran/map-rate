@@ -19,12 +19,6 @@ const initialForm = {
 function App() {
   const [form, setForm] = useState(initialForm);
 
-  // useEffect(() => {
-  //   if (form.location.length === 0 && form.searchResult.name !== "") {
-  //     getLocation();
-  //   }
-  // }, [form.location]);
-
   console.log("form", form);
   const { Header, Sider, Content } = Layout;
   return (
