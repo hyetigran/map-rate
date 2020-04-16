@@ -6,6 +6,8 @@ import OptionCash from "./OptionCash";
 import OptionCard from "./OptionCard";
 import "./Sider.css";
 
+import { geoData } from "../../utility/location";
+
 const OptionPanel = (props) => {
   const { form, setForm } = props;
   const [isCash, setIsCash] = useState(true);
@@ -56,12 +58,21 @@ const OptionPanel = (props) => {
         bestRate = allRateList.reduce(function (prev, current) {
           return prev.rate < current.rate ? prev : current;
         });
-        console.log(bestRate);
+        console.log("best rate", bestRate);
         return bestRate;
       }
     }
+    let location;
+    function getLocation() {
+      let name = bestRate.name;
+      console.log("name", name);
+      location = geoData.filter((el) => el.name === name);
+      console.log("geo", location);
+      return location;
+    }
     bestRateFinder();
-    setForm({ ...form, searchResult: bestRate });
+    getLocation();
+    setForm({ ...form, searchResult: bestRate, location: location });
   }
 
   return (
