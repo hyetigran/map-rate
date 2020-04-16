@@ -1,0 +1,17 @@
+export const exchangeLocation = [
+    {name: 'Ameriabank', lat: 40.188783, lon: 44.517063},
+    {name: 'Evocabank', lat: 40.176646, lon: 44.516684},
+    {name: 'VTB Bank (Armenia)', lat: 40.180810, lon: 44.515611},
+    {name: 'Inecobank', lat: 40.182613 , lon: 44.517757 },
+    {name: 'IDBank', lat: 40.177104, lon: 44.519645},
+    {name: 'Byblos Bank Armenia', lat: 40.182004 , lon: 44.507128},
+    {name: 'Ardshinbank', lat: 40.182823 , lon: 44.513437},
+    {name: 'ARARATBANK', lat: 40.182971, lon: 44.507531},
+    {name: 'ACBA-Credit Agricole..', lat: 40.184107, lon: 44.507549 },
+    {name: 'ArmBusinessBank', lat: 40.179338, lon: 44.516561 },
+    {name: 'ARMECONOMBANK', lat: 40.182816, lon: 44.518030},
+    {name: 'Unibank', lat: 40.180724, lon: 44.508615},
+    {name: 'Artsakhbank', lat: 40.176272, lon: 44.514270},
+    {name: 'HSBC Bank Armenia', lat: 40.177633, lon: 44.511358},
+    {name: 'Conversebank', lat: 40.176946, lon: 44.512459},
+]
