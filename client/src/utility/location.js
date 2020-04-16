@@ -1,3 +1,5 @@
+//future feature - use google geo locations to request
+//all lat / lng for any given bank name
 export const geoData = [
   { name: "Ameriabank", lat: 40.188783, lng: 44.517063 },
   { name: "Evocabank", lat: 40.176646, lng: 44.516684 },

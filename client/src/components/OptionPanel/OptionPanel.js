@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Switch, Button, Modal } from "antd";
+import { Switch, Button } from "antd";
 import axios from "axios";
 
 import OptionCash from "./OptionCash";
