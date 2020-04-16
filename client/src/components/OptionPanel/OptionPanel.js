@@ -20,8 +20,9 @@ const OptionPanel = (props) => {
   }, [nonCashData]);
 
   function fetchNonCashData() {
+    //.get("http://localhost:8000/rate") // need to change to "/rate" before `npm run build`
     axios
-      .get("http://localhost:8000/rate") // need to change to "/rate" before `npm run build`
+      .get("/rate")
       .then((response) => {
         setNonCashData(response.data);
       })
