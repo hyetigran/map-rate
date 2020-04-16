@@ -1,25 +1,16 @@
 import React, { useState, useEffect } from "react";
-import { Switch, Button, Modal } from "antd";
+import { Switch, Button } from "antd";
 import axios from "axios";
 
 import OptionCash from "./OptionCash";
 import OptionCard from "./OptionCard";
 import "./Sider.css";
 
-const initialForm = {
-  isBuying: "buy",
-  currency: "usd",
-  searchResult: [
-    {
-      name: "",
-      rate: ""
-    }
-  ]
-};
-const OptionPanel = () => {
+import { geoData } from "../../utility/location";
+
+const OptionPanel = (props) => {
+  const { form, setForm } = props;
   const [isCash, setIsCash] = useState(true);
-  const [form, setForm] = useState(initialForm);
-  const [modal, setModal] = useState({ visible: false });
   const [nonCashData, setNonCashData] = useState([]);
 
   useEffect(() => {
@@ -31,10 +22,10 @@ const OptionPanel = () => {
   function fetchNonCashData() {
     axios
       .get("http://localhost:8000/rate") // need to change to "/rate" before `npm run build`
-      .then(response => {
+      .then((response) => {
         setNonCashData(response.data);
       })
-      .catch(error => {
+      .catch((error) => {
         console.log(error);
       });
   }
@@ -51,50 +42,39 @@ const OptionPanel = () => {
   }
 
   function searchHandle() {
-    const allRateList = nonCashData.map(bank => {
+    const allRateList = nonCashData.map((bank) => {
       let specificRate = bank[form.currency][form.isBuying];
       return { name: bank.bankName, rate: specificRate };
     });
     let bestRate = 0;
     function bestRateFinder() {
       if (form.isBuying === "buy") {
-        bestRate = allRateList.reduce(function(prev, current) {
+        bestRate = allRateList.reduce(function (prev, current) {
           return prev.rate > current.rate ? prev : current;
-        });
+        }, 0);
         console.log(bestRate);
         return bestRate;
       } else {
-        bestRate = allRateList.reduce(function(prev, current) {
+        bestRate = allRateList.reduce(function (prev, current) {
           return prev.rate < current.rate ? prev : current;
         });
-        console.log(bestRate);
+        console.log("best rate", bestRate);
         return bestRate;
       }
     }
+    let location;
+    function getLocation() {
+      let name = bestRate.name;
+      console.log("name", name);
+      location = geoData.filter((el) => el.name === name);
+      console.log("geo", location);
+      return location;
+    }
     bestRateFinder();
-    setForm({ ...form, searchResult: { rate: bestRate } });
-    handleOk();
+    getLocation();
+    setForm({ ...form, searchResult: bestRate, location: location });
   }
 
-  //Modal handlers
-  const showModal = () => {
-    setModal({
-      visible: true
-    });
-  };
-
-  const handleOk = e => {
-    setModal({
-      visible: false
-    });
-  };
-
-  const handleCancel = e => {
-    //console.log(e);
-    setModal({
-      visible: false
-    });
-  };
   return (
     <div className="sider">
       <h2>Trasaction Type:</h2>
@@ -123,17 +103,9 @@ const OptionPanel = () => {
         <p></p>
         {}
       </div>
-      <Button type="primary" onClick={showModal}>
+      <Button type="primary" onClick={() => searchHandle()}>
         Search
       </Button>
-      <Modal
-        title="Basic Modal"
-        visible={modal.visible}
-        onOk={searchHandle}
-        onCancel={handleCancel}
-      >
-        {/* {form.searchResult} */}
-      </Modal>
     </div>
   );
 };
