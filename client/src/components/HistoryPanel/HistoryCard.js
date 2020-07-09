@@ -1,9 +1,9 @@
 import React from "react";
 
 const HistoryCard = (props) => {
-  const { history } = props;
-  console.log("card", history);
-  return <div>{history.searchResult.name}</div>;
+  const { favorite } = props;
+  console.log("card", favorite);
+  return <div>{favorite.searchResult.name}</div>;
 };
 
 export default HistoryCard;

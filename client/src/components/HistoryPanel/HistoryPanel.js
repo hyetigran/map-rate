@@ -2,14 +2,14 @@ import React from "react";
 import HistoryCard from "./HistoryCard";
 
 const HistoryPanel = (props) => {
-  const { history, setForm } = props;
+  const { favorites, setForm } = props;
   //use set form to paint marker back on map
-  console.log("history", history);
+  console.log("favorites", favorites);
   return (
     <div>
-      {history.length &&
-        history.reverse().map((el, idx) => {
-          return <HistoryCard key={idx} history={el} />;
+      {favorites.length &&
+        favorites.reverse().map((el, idx) => {
+          return <HistoryCard key={idx} favorite={el} />;
         })}
     </div>
   );

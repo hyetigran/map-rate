@@ -19,13 +19,13 @@ const initialForm = {
 
 function App() {
   const [form, setForm] = useState(initialForm);
-  const [history, setHistory] = useState([]);
-  //need history to contain unique id inorder to map in history component
+  const [favorites, setFavorites] = useState([]);
+  //need favorites to contain unique id inorder to map in favorites component
 
   useEffect(() => {
-    setHistory([...history, form]);
+    setFavorites([...favorites, form]);
   }, [form.searchResult]);
-  console.log("history", history);
+  console.log("favorites", favorites);
   console.log("form", form);
   const { Header, Sider, Content } = Layout;
   return (
@@ -33,7 +33,7 @@ function App() {
       <Layout>
         <Sider theme="light">
           <OptionPanel form={form} setForm={setForm} />
-          <HistoryPanel history={history} setForm={setForm} />
+          <HistoryPanel favorites={favorites} setForm={setForm} />
         </Sider>
         <Layout>
           <Header></Header>
