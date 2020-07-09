@@ -59,7 +59,11 @@ const Map = (props) => {
         >
           <div>
             <h2>{selectedBank.name}</h2>
-            <p>{props.rate}</p>
+            <div style={{ display: "flex" }}>
+              <p>Rate: {props.rate}</p>
+              <i className="fas fa-save"></i>
+              <i className="fas fa-trash"></i>
+            </div>
           </div>
         </InfoWindow>
       )}
