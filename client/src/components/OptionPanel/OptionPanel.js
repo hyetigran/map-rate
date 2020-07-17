@@ -17,12 +17,14 @@ const OptionPanel = (props) => {
     if (!nonCashData.length) {
       fetchNonCashData();
     }
-  }, [nonCashData]);
+  }, []);
+
+  //[nonCashData]);
 
   function fetchNonCashData() {
     // .get("/rate")
     axios
-      .get("http://localhost:8000/rate") // need to change to "/rate" before `npm run build`
+      .get("http://localhost:9000/rate") // need to change to "/rate" before `npm run build`
       .then((response) => {
         setNonCashData(response.data);
       })
